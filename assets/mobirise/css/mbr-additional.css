@@ -2,7 +2,7 @@ body {
   font-family: Be Vietnam;
 }
 textarea.form-control::placeholder {
-  font-size: 1.14rem;
+  font-size: 2.12rem;
 }
 .display-1 {
   font-family: 'Cormorant Garamond', serif;
