@@ -95,15 +95,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mx-auto mbr-form form-col">
-                    <div class="form-wrap" data-form-type="formoid">
+                    <div class="form-wrap" id="contact-page" data-form-type="formoid">
                         <div class="text-center">
                             <!-- <h4 class="mbr-section-title mbr-semibold pb-4 mbr-fonts-style display-2">Let's Start a
                                 Conversation</h4> -->
                             <!-- <h4 class="mbr-section-title mbr-semibold pb-4 mbr-fonts-style display-2">Have any questions?</h4> -->
-                            <h4 class="mbr-section-title mbr-semibold pb-4 mbr-fonts-style display-2">I'd love to hear from you.</h4>
+                            <h4 class="mbr-section-title mbr-semibold pb-4 mbr-fonts-style display-2">I'd love to hear
+                                from you.</h4>
 
                         </div>
-                        <form action="" onsubmit="sendEmail(); reset();" method="POST" id="contact-form"
+                        <form action="" onsubmit="sendEmail(); viewThanks();" method="POST" id="contact-form"
                             class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden"
                                 name="email" data-form-email="true"
                                 value="oJEZ3cOLIjVsWzAT5XqUrqVm8EitD6nftwvrIP3QliSGbZu9rLoxguGMClMVb8vuBO9dxvQxA2OVGrRVi4XzzAUV+tM2PE4eFQn23SF+9ydHv/MZnGWpW9CDksUfGnuw.e6nkc176cR78m65Z1EFqPrKwNyCCybOI4SwQY0F5Bt8kH8peIBQwnM3oTj/TII5jFCP5z9NXWDz4+rFNsDtdwhZwpWrMAf/Rb0I2cSvSSx6Azc0YYAtOAwuZ6wHpPE+i">
@@ -131,16 +132,46 @@
                                         data-form-field="message" class="form-control" required="required"></textarea>
                                 </div>
                                 <div class="input-group-btn m-auto">
-                                    <button type="submit" name="submit"
+                                    <button id="nextStep" type="submit" name="submit"
                                         class="btn btn-sm btn-form btn-primary display-4">SEND</button>
                                 </div>
                             </div>
                         </form>
                     </div>
+                    <div class="mbr-fonts-style" id="thank_you" style="display: none;">
+                        <h3 class="display-2">Thank you for reaching out to me!</h3>
+                        <h6 class="display-6">I'll get back to you as soon as possible.</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- <script>
+        var nextStep = document.querySelector('#nextStep');
+
+        nextStep.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            //Send info
+            sendEmail();
+
+            // Hide first view
+            document.getElementById('contact-page').style.display = 'none';
+
+            // Show thank you message element
+            document.getElementById('thank_you').style.display = 'block';
+        });
+    </script> -->
+    <script>
+        function viewThanks() {
+            // Hide first view
+            document.getElementById('contact-page').style.display = 'none';
+
+            // Show thank you message element
+            document.getElementById('thank_you').style.display = 'block';
+        }
+    </script>
 
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
     <script src="assets/web/assets/jquery/jquery.validate-1.19.0.min"></script>
@@ -184,7 +215,7 @@
                     + "<br> Subject: " + document.getElementById("title").value
                     + "<br> Message for you: " + document.getElementById("message").value
             }).then(
-                message => alert("Message sent succesfully !!!")
+                // message => alert("Message sent succesfully !!!")
             );
         }
     </script>
